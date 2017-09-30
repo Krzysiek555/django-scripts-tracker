@@ -48,29 +48,36 @@ def required_preceding_script(*modules):
 
 
 def _print_warning(unapplied_preceding_scripts, modified_preceding_scripts):
-    print '{LIGHT_CYAN}Warning:{NC}'.format(**TERM_COLORS)
+    print('{LIGHT_CYAN}Warning:{NC}'.format(**TERM_COLORS))
     if unapplied_preceding_scripts:
-        print '  You have {} management scripts that should be applied before applying this script.' \
-            .format(len(unapplied_preceding_scripts))
+        print('  You have {} management scripts that should be applied before applying this script.'.format(
+            len(unapplied_preceding_scripts)))
     if modified_preceding_scripts:
-        print '  {} required management scripts were modified since their last execution.' \
-            .format(len(modified_preceding_scripts))
+        print('  {} required management scripts were modified since their last execution.'.format(
+            len(modified_preceding_scripts)))
 
     if unapplied_preceding_scripts:
-        print '{LIGHT_CYAN}Unapplied scripts ({count}):{NC}'.format(count=len(unapplied_preceding_scripts),
-                                                                    **TERM_COLORS)
+        print('{LIGHT_CYAN}Unapplied scripts ({count}):{NC}'.format(count=len(unapplied_preceding_scripts),
+                                                                    **TERM_COLORS))
         print_scripts(unapplied_preceding_scripts)
     if modified_preceding_scripts:
-        print '{LIGHT_CYAN}Modified scripts ({count}):{NC}'.format(count=len(modified_preceding_scripts), **TERM_COLORS)
+        print(
+            '{LIGHT_CYAN}Modified scripts ({count}):{NC}'.format(count=len(modified_preceding_scripts), **TERM_COLORS))
         print_scripts(modified_preceding_scripts)
 
 
-def _ask_for_abort(current_script):
-    print 'It is adviced to abort the execution of this script and apply its required preceding scripts first.'
+try:
+    input = raw_input
+except NameError:
+    pass
 
-    res = raw_input('Do you want to abort the execution of {}? [Y/N]\n'.format(current_script)).lower()
+
+def _ask_for_abort(current_script):
+    print('It is adviced to abort the execution of this script and apply its required preceding scripts first.')
+
+    res = input('Do you want to abort the execution of {}? [Y/N]\n'.format(current_script)).lower()
     while res not in ['y', 'n', 'yes', 'no']:
-        res = raw_input('Do you want to abort the execution of {}? [Y/N]\n'.format(current_script)).lower()
+        res = input('Do you want to abort the execution of {}? [Y/N]\n'.format(current_script)).lower()
 
     if res in ['y', 'yes']:
         return True

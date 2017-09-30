@@ -32,6 +32,6 @@ _LINUX_TERM_COLORS = {
     'NC': '\033[0m'
 }
 
-_NO_TERM_COLORS = {k: '' for k, v in _LINUX_TERM_COLORS.iteritems()}  # empty color codes
+_NO_TERM_COLORS = {k: '' for k, v in _LINUX_TERM_COLORS.items()}  # empty color codes
 
 TERM_COLORS = _LINUX_TERM_COLORS if os.name == 'posix' else _NO_TERM_COLORS

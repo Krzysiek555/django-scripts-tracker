@@ -9,8 +9,8 @@ def print_scripts(script_paths):
     """ Prints out the list of scripts with their descriptions """
     for script_path in script_paths:
         help = _get_script_help(script_path)
-        print u'  {GREEN}{path}{NC}\n' \
-              u'    {descr}'.format(path=script_path, descr=help, **TERM_COLORS)
+        print(u'  {GREEN}{path}{NC}\n'
+              u'    {descr}'.format(path=script_path, descr=help, **TERM_COLORS))
 
 
 def _get_script_help(script_path):

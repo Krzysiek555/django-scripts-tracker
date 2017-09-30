@@ -56,16 +56,16 @@ def get_unapplied_scripts():
 
 
 def print_new_and_modified_scripts(new_scripts, modified_scripts):
-    print '{LIGHT_CYAN}Checking management scripts:{NC}\n' \
+    print('{LIGHT_CYAN}Checking management scripts:{NC}\n'
           '  You have {new_count} new and {mod_count} modified management scripts to be applied.'.format(
-        new_count=len(new_scripts), mod_count=len(modified_scripts), **TERM_COLORS)
+        new_count=len(new_scripts), mod_count=len(modified_scripts), **TERM_COLORS))
 
     if len(new_scripts):
-        print '{LIGHT_CYAN}New scripts ({count}):{NC}'.format(count=len(new_scripts), **TERM_COLORS)
+        print('{LIGHT_CYAN}New scripts ({count}):{NC}'.format(count=len(new_scripts), **TERM_COLORS))
         print_scripts(new_scripts)
 
     if len(modified_scripts):
-        print '{LIGHT_CYAN}Modified scripts ({count}):{NC}'.format(count=len(modified_scripts), **TERM_COLORS)
+        print('{LIGHT_CYAN}Modified scripts ({count}):{NC}'.format(count=len(modified_scripts), **TERM_COLORS))
         print_scripts(modified_scripts)
 
 
