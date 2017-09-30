@@ -2,7 +2,7 @@ import hashlib
 import imp
 import os
 
-from scripts_tracker.settings import TERM_COLORS
+from django_scripts_tracker.settings import TERM_COLORS
 
 
 def print_scripts(script_paths):

@@ -90,3 +90,4 @@ manually as applied ones.
 To mark scripts as "applied" ones type in the following command::
 
     python manage.py check_scripts --mark-all-applied
+

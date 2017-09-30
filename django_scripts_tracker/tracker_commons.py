@@ -1,9 +1,9 @@
 import imp
 import os
 
-from scripts_tracker.models import AppliedManagementScripts
-from scripts_tracker.settings import IGNORED_FILES, IGNORED_CMD_PREFIXES
-from scripts_tracker.utils import get_hash
+from django_scripts_tracker.models import AppliedManagementScripts
+from django_scripts_tracker.settings import IGNORED_FILES, IGNORED_CMD_PREFIXES
+from django_scripts_tracker.utils import get_hash
 
 
 def filter_unapplied_scripts(file_paths):

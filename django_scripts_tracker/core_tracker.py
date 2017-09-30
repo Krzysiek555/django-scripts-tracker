@@ -2,11 +2,11 @@ import inspect
 import os
 from functools import wraps
 
-from scripts_tracker.git_plugin import has_uncommited_changes
-from scripts_tracker.models import AppliedManagementScripts
-from scripts_tracker.settings import COMMANDS_DIRS, TERM_COLORS, CHECK_SCRIPT_GIT_STATUS
-from scripts_tracker.tracker_commons import is_script_ignored, is_tracked_script, filter_unapplied_scripts
-from scripts_tracker.utils import get_hash, get_script_path, print_scripts
+from django_scripts_tracker.git_plugin import has_uncommited_changes
+from django_scripts_tracker.models import AppliedManagementScripts
+from django_scripts_tracker.settings import COMMANDS_DIRS, TERM_COLORS, CHECK_SCRIPT_GIT_STATUS
+from django_scripts_tracker.tracker_commons import is_script_ignored, is_tracked_script, filter_unapplied_scripts
+from django_scripts_tracker.utils import get_hash, get_script_path, print_scripts
 
 
 def mark_script_as_applied(script_path):

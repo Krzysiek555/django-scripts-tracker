@@ -3,9 +3,9 @@ import os
 from functools import wraps
 from types import ModuleType
 
-from scripts_tracker.settings import TERM_COLORS
-from scripts_tracker.tracker_commons import is_script_ignored, is_tracked_script, filter_unapplied_scripts
-from scripts_tracker.utils import print_scripts, get_script_path
+from django_scripts_tracker.settings import TERM_COLORS
+from django_scripts_tracker.tracker_commons import is_script_ignored, is_tracked_script, filter_unapplied_scripts
+from django_scripts_tracker.utils import print_scripts, get_script_path
 
 
 class UserAbortingExecution(Exception):

@@ -3,7 +3,7 @@ from optparse import make_option
 
 from django.core.management import BaseCommand
 
-from scripts_tracker.core_tracker import get_unapplied_scripts, mark_script_as_applied, \
+from django_scripts_tracker.core_tracker import get_unapplied_scripts, mark_script_as_applied, \
     print_new_and_modified_scripts
 
 MARK_ALL_SCRIPTS_AS_APPLIED = 'mark_all_scripts_as_applied'
