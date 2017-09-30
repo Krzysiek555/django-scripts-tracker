@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class AppliedManagementScripts(models.Model):
     """ Model for tracking management scripts execution """
     file_path = models.CharField(max_length=500)

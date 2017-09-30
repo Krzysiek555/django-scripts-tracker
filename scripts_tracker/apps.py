@@ -7,5 +7,5 @@ class ScriptsTrackerConfig(AppConfig):
     verbose_name = "Django Scripts Tracker"
 
     def ready(self):
-        from scripts_tracker import check_scripts_signal_handler
+        from core_tracker import check_scripts_signal_handler
         post_migrate.connect(check_scripts_signal_handler, sender=self)

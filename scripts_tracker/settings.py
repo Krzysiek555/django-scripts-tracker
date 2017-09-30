@@ -18,6 +18,12 @@ IGNORED_CMD_PREFIXES = getattr(settings, 'IGNORED_CMD_PREFIXES', tuple())
 IGNORED_FILES = getattr(settings, 'IGNORED_FILES', ('__init__.py',))
 
 # ==========================================================
+# When set to True - scripts with uncommited changes
+# WON'T get marked as applied ones after their execution
+# ==========================================================
+CHECK_SCRIPT_GIT_STATUS = False
+
+# ==========================================================
 # Terminal colors
 # ==========================================================
 _LINUX_TERM_COLORS = {
