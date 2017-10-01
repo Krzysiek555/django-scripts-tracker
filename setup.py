@@ -17,6 +17,7 @@ setup(
     long_description=README,
     url='https://krzysiek555.github.io/django-scripts-tracker/',
     author='Krzysztof Falcman',
+    author_email='dev@krzysiekf.cba.pl',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

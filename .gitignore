@@ -1,3 +1,5 @@
 .idea/
 __pycache__/
+dist/
+django_scripts_tracker.egg-info/
 *.py[cod]
