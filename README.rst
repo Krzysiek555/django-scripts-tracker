@@ -1,6 +1,10 @@
 ======================
 Django Scripts Tracker
 ======================
+
+.. image:: https://badge.fury.io/py/django-scripts-tracker.svg
+    :target: https://badge.fury.io/py/django-scripts-tracker
+
 An unofficial Django utility tool that tracks management scripts execution.
 
 **What does it mean "to track script execution"?**
