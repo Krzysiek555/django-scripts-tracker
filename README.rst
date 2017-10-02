@@ -1,9 +1,15 @@
+.. image:: https://badge.fury.io/py/django-scripts-tracker.svg
+    :target: https://badge.fury.io/py/django-scripts-tracker
+.. image:: https://img.shields.io/pypi/pyversions/django-scripts-tracker.svg
+    :target: https://pypi.python.org/pypi/django-scripts-tracker
+.. image:: https://img.shields.io/badge/django-1.8%2C%201.11-blue.svg
+    :target: https://pypi.python.org/pypi/django-scripts-tracker
+.. image:: https://img.shields.io/pypi/l/django-scripts-tracker.svg
+    :target: https://pypi.python.org/pypi/django-scripts-tracker
+
 ======================
 Django Scripts Tracker
 ======================
-
-.. image:: https://badge.fury.io/py/django-scripts-tracker.svg
-    :target: https://badge.fury.io/py/django-scripts-tracker
 
 An unofficial Django utility tool that tracks management scripts execution.
 
@@ -13,6 +19,7 @@ Scripts tracker watches manage.py scripts located in ``your_app/management/comma
 some new code and apply its migrations - you will get notified about new (or modified) manage.py scripts that should
 be applied for the project to work properly.
 
+Home page: https://krzysiek555.github.io/django-scripts-tracker
 
 Quick feature preview
 =====================
@@ -95,3 +102,10 @@ To mark scripts as "applied" ones type in the following command::
 
     python manage.py check_scripts --mark-all-applied
 
+
+Read more
+=========
+
+For more information visit home page:
+
+https://krzysiek555.github.io/django-scripts-tracker
