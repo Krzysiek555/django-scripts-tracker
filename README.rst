@@ -1,11 +1,18 @@
 .. image:: https://badge.fury.io/py/django-scripts-tracker.svg
     :target: https://badge.fury.io/py/django-scripts-tracker
+    :alt: PyPI version
+.. image:: https://landscape.io/github/Krzysiek555/django-scripts-tracker/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/Krzysiek555/django-scripts-tracker/master
+   :alt: Code Health
 .. image:: https://img.shields.io/pypi/pyversions/django-scripts-tracker.svg
     :target: https://pypi.python.org/pypi/django-scripts-tracker
+    :alt: Python versions
 .. image:: https://img.shields.io/badge/django-1.8%2C%201.11-blue.svg
     :target: https://pypi.python.org/pypi/django-scripts-tracker
+    :alt: Django versions
 .. image:: https://img.shields.io/pypi/l/django-scripts-tracker.svg
     :target: https://pypi.python.org/pypi/django-scripts-tracker
+    :alt: License
 
 ======================
 Django Scripts Tracker
