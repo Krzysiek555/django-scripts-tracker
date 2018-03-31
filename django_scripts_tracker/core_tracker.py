@@ -2,6 +2,7 @@ import inspect
 import os
 from functools import wraps
 
+from django_scripts_tracker.dependency_resolver import build_dependencies_dict, print_dependencies, run_scripts
 from django_scripts_tracker.git_plugin import has_uncommited_changes
 from django_scripts_tracker.models import AppliedManagementScripts
 from django_scripts_tracker.settings import COMMANDS_DIRS, TERM_COLORS, CHECK_SCRIPT_GIT_STATUS
@@ -55,7 +56,7 @@ def get_unapplied_scripts():
     return (new_scripts, modified_scripts)
 
 
-def print_new_and_modified_scripts(new_scripts, modified_scripts):
+def print_new_and_modified_scripts(new_scripts, modified_scripts, show_dependencies=False):
     print('{LIGHT_CYAN}Checking management scripts:{NC}\n'
           '  You have {new_count} new and {mod_count} modified management scripts to be applied.'.format(
         new_count=len(new_scripts), mod_count=len(modified_scripts), **TERM_COLORS))
@@ -68,7 +69,18 @@ def print_new_and_modified_scripts(new_scripts, modified_scripts):
         print('{LIGHT_CYAN}Modified scripts ({count}):{NC}'.format(count=len(modified_scripts), **TERM_COLORS))
         print_scripts(modified_scripts)
 
+    if show_dependencies and len(new_scripts + modified_scripts):
+        scripts_dependencies = build_dependencies_dict(new_scripts + modified_scripts)
+        print_dependencies(scripts_dependencies, prefix='  ')
+
 
 def check_scripts_signal_handler(sender, **kwargs):
+    from django.conf import settings
+
     new_scripts, modified_scripts = get_unapplied_scripts()
     print_new_and_modified_scripts(new_scripts, modified_scripts)
+
+    if hasattr(settings, 'SCRIPTS_TRACKER') and settings.SCRIPTS_TRACKER \
+            and settings.SCRIPTS_TRACKER.get('auto_run', False):
+        scripts_dependencies = build_dependencies_dict(new_scripts + modified_scripts)
+        run_scripts(scripts_dependencies, True)

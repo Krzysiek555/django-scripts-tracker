@@ -42,6 +42,7 @@ def required_preceding_script(*modules):
             result = decorated_func(*args, **kwargs)
             return result
 
+        wrapper._required_scripts = script_paths
         return wrapper
 
     return decorator

@@ -7,6 +7,7 @@ from django_scripts_tracker.core_tracker import get_unapplied_scripts, mark_scri
     print_new_and_modified_scripts
 
 MARK_ALL_SCRIPTS_AS_APPLIED = 'mark_all_scripts_as_applied'
+SHOW_DEPENDENCIES = 'show_dependencies'
 
 
 class Command(BaseCommand):
@@ -20,6 +21,11 @@ class Command(BaseCommand):
                         dest=MARK_ALL_SCRIPTS_AS_APPLIED,
                         default=False,
                         help='Marks all management scripts as applied'),
+            make_option('--show-dependencies',
+                        action='store_true',
+                        dest=SHOW_DEPENDENCIES,
+                        default=False,
+                        help='Prints unapplied scripts and their unapplied dependencies'),
         )
     else:
         # Django 1.10 and 1.11
@@ -29,13 +35,18 @@ class Command(BaseCommand):
                                 dest=MARK_ALL_SCRIPTS_AS_APPLIED,
                                 default=False,
                                 help='Marks all management scripts as applied')
+            parser.add_argument('--show-dependencies',
+                                action='store_true',
+                                dest=SHOW_DEPENDENCIES,
+                                default=False,
+                                help='Prints unapplied scripts and their unapplied dependencies')
 
     def handle(self, *args, **options):
         if options[MARK_ALL_SCRIPTS_AS_APPLIED]:
             self.mark_all_scripts_as_applied()
         else:
             new_scripts, modified_scripts = get_unapplied_scripts()
-            print_new_and_modified_scripts(new_scripts, modified_scripts)
+            print_new_and_modified_scripts(new_scripts, modified_scripts, options[SHOW_DEPENDENCIES])
 
     @staticmethod
     def mark_all_scripts_as_applied():
