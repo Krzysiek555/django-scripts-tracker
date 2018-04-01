@@ -2,8 +2,8 @@ import imp
 import os
 import subprocess
 
-from settings import TERM_COLORS
-from tracker_commons import filter_unapplied_scripts
+from django_scripts_tracker.settings import TERM_COLORS
+from django_scripts_tracker.tracker_commons import filter_unapplied_scripts
 
 
 def get_required_preceding_scripts(script_path):
@@ -39,10 +39,10 @@ def run_scripts(script_dependencies, print_executed_scripts=False):
     if len(script_dependencies) == 0:
         return
 
-    for script_path, dependencies in script_dependencies.iteritems():
+    for script_path, dependencies in script_dependencies.items():
         if len(dependencies) == 0:
             if print_executed_scripts:
-                print '{LIGHT_CYAN}Running:{NC} {script}'.format(script=script_path, **TERM_COLORS)
+                print('{LIGHT_CYAN}Running:{NC} {script}'.format(script=script_path, **TERM_COLORS))
             script_name = os.path.splitext(os.path.basename(script_path))[0]
             subprocess.call('python manage.py {}'.format(script_name), shell=True)
             new_dependencies_dict = _remove_script_from_dependencies(script_path, script_dependencies)
@@ -54,7 +54,7 @@ def run_scripts(script_dependencies, print_executed_scripts=False):
 def _remove_script_from_dependencies(executed_script, script_dependencies):
     """ Builds new dependencies dict skipping the executed script """
     new_dependencies = dict()
-    for script_path, dependencies in script_dependencies.iteritems():
+    for script_path, dependencies in script_dependencies.items():
         if script_path != executed_script:
             new_dependencies[script_path] = [d for d in dependencies if d != executed_script]
     return new_dependencies
@@ -79,7 +79,7 @@ def print_dependencies(scripts_dependencies, prefix=''):
                 line += u'\u252C'  # has child dependencies
 
             line += u'\u2500 ' + script
-            print prefix + depth_prefix + line
+            print(prefix + depth_prefix + line)
 
             if index == len(scripts):
                 depth_prefix += u'  '
@@ -89,5 +89,5 @@ def print_dependencies(scripts_dependencies, prefix=''):
             _recursive_traverse(scripts_dependencies[script], depth_prefix)
             depth_prefix = depth_prefix[:-2]
 
-    print '{LIGHT_CYAN}Script dependencies:{NC}'.format(**TERM_COLORS)
+    print('{LIGHT_CYAN}Script dependencies:{NC}'.format(**TERM_COLORS))
     _recursive_traverse(scripts_dependencies.keys())
