@@ -1,7 +1,7 @@
 [![PyPI version](https://badge.fury.io/py/django-scripts-tracker.svg)](https://badge.fury.io/py/django-scripts-tracker)
 [![Code Health](https://landscape.io/github/Krzysiek555/django-scripts-tracker/master/landscape.svg?style=flat)](https://landscape.io/github/Krzysiek555/django-scripts-tracker/master)
 ![Python versions](https://img.shields.io/pypi/pyversions/django-scripts-tracker.svg)
-![Django versions](https://img.shields.io/badge/django-1.8%2C%201.11-blue.svg)
+![Django versions](https://img.shields.io/badge/django-1.7%2C%201.8%2C%201.11-blue.svg)
 ![License](https://img.shields.io/pypi/l/django-scripts-tracker.svg)
 
 Django Scripts Tracker
@@ -161,7 +161,7 @@ The app has been written to support Python 2.7.x and Python 3.x<br>
 It has been successfully tested on Python 2.7.17 and 3.6.2
 
 The app has been written to support Django 1.7+<br>
-It has been successfully tested on Django 1.8.18 and 1.11.5
+It has been successfully tested on Django 1.7.11, 1.8.18 and 1.11.11
 
 
 Author
