@@ -153,6 +153,10 @@ There are few tracker constants that you might want to override in your project'
 * `CHECK_SCRIPT_GIT_STATUS` - a flag, when set to `True` - scripts with uncommited changes **won't** get marked as 
 applied ones after their execution (default: `False`)
 
+* `SCRIPTS_TRACKER` - a dict, with optional configurations. Currently only one key is in use: `auto_run`, which
+indicates whether all unapplied scripts should be automatically run after performing migrations
+(default: `{ 'auto_run': False }`)
+
 
 Python and Django compatibility
 -------------------------------
