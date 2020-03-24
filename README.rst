@@ -113,7 +113,7 @@ To mark scripts as "applied" ones type in the following command::
 Autorun
 -------
 By default script tracker just warns about new management scripts that should be applied (after performing migrations).
-However you can also enable automatic execution of all unapplied scripts through adding a setting in your `settings.py` file:
+However you can also enable automatic execution of all unapplied scripts through adding a setting in your `settings.py` file::
 
     SCRIPTS_TRACKER = {
         'auto_run': True,
