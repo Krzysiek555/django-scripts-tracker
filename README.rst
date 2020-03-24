@@ -110,6 +110,21 @@ To mark scripts as "applied" ones type in the following command::
     python manage.py check_scripts --mark-all-applied
 
 
+Autorun
+-------
+By default script tracker just warns about new management scripts that should be applied (after performing migrations).
+However you can also enable automatic execution of all unapplied scripts through adding a setting in your `settings.py` file:
+
+    SCRIPTS_TRACKER = {
+        'auto_run': True,
+    }
+
+
+Script dependencies
+-------------------
+Scripts tracker also provides a `@required_preceeding_script` decorator for defining script dependencies.
+
+
 Read more
 =========
 
